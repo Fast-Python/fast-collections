@@ -1,0 +1,16 @@
+[package]
+name = "fast-collections"
+description = "Blazing-fast collections you've been missing"
+authors = ["khabib73 <kh73bb@yahoo.com>"]
+version = "0.0.0"
+edition = "2024"
+
+[features]
+pyo3 = ["dep:pyo3"]
+
+[dependencies]
+pyo3 = { version = "0.28", features = ["extension-module"], optional = true }
+
+[lib]
+name = "fast_collections" 
+crate-type = ["cdylib"]
