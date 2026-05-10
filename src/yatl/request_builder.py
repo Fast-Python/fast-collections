@@ -131,24 +131,24 @@ def process_body(
         ValueError: If the body has an unsupported type.
     """
     if isinstance(body, dict):
-        if "json" in body:
-            kwargs["json"] = body["json"]
-            _set_content_type(headers, "application/json")
-        elif "xml" in body:
+        for format, fmt, key in [
+            ("json", "application/json", "json"),
+            ("text", "text/plain", "data"),
+            ("form", "application/x-www-form-urlencoded", "data"),
+        ]:
+            if format in body:
+                kwargs[key] = body[format]
+                _set_content_type(headers, fmt)
+
+        if "xml" in body:
             xml_content = body["xml"]
             if isinstance(xml_content, str):
                 kwargs["data"] = xml_content
                 _set_content_type(headers, "application/xml")
-        elif "text" in body:
-            kwargs["data"] = body["text"]
-            _set_content_type(headers, "text/plain")
-        elif "form" in body:
-            kwargs["data"] = body["form"]
-            _set_content_type(headers, "application/x-www-form-urlencoded")
-        elif "files" in body:
+
+        if "files" in body:
             kwargs["files"] = body["files"]
-        else:
-            kwargs["json"] = body
+
     elif isinstance(body, str):
         kwargs["data"] = body
         _set_content_type(headers, "text/plain")
