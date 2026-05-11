@@ -179,6 +179,8 @@ class ResponseValidator:
             AssertionError: If the status code does not match.
         """
         expected_status = self.expect_spec.get("status")
+        if isinstance(expected_status, str) and expected_status.isdigit():
+            expected_status = int(expected_status)
         if expected_status is not None and self.response.status_code != expected_status:
             raise AssertionError(
                 f"Expected status {expected_status}, got {self.response.status_code}"
