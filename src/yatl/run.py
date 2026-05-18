@@ -194,7 +194,6 @@ class Runner:
                         data=data,
                     )
                     step_number += 1
-                    context = create_context(test_specification)
             else:
                 context = self._process_step(step_number, step, context, reporter)
                 step_number += 1
