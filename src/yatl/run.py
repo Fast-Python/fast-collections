@@ -69,7 +69,7 @@ def run_test_not_concurrently(runner, test_path: str = ".") -> None:
 
 
 class Runner:
-    """Orchestrates the execution of YAML-rbased test suites.
+    """Orchestrates the execution of YAML-based test suites.
 
     Loads test specifications from YAML files, runs each step sequentially,
     and maintains a context that is passed between steps.
@@ -210,5 +210,5 @@ class Runner:
 
 
 if __name__ == "__main__":
-    runner = Runner(DataExtractor(), TemplateRender(), ResponseValidator, Reporter)
+    runner = Runner(DataExtractor(), TemplateRenderer(), ResponseValidator, Reporter)
     run_tests_concurrently(runner, max_workers=10)
