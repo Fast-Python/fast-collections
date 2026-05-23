@@ -10,8 +10,8 @@ format:
 typing:
 	poetry run mypy .
 
-.PHONY: integration_tests
-integration_tests:
+.PHONY: smoke
+smoke:
 	poetry run python -m src.yatl.run
 
 .PHONY: unit_tests
