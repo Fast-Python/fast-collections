@@ -142,30 +142,21 @@ class Runner:
             )
             return context
 
-        elif is_parametrize_step:
+        if is_parametrize_step:
             reporter.add_info(info(f"Step {step_number}, params: {data}"))
-
-            return execute_step(
-                step,
-                context,
-                self.data_extractor,
-                self.template_renderer,
-                self.response_validator_factory,
-            )
-
         else:
             reporter.add_info(info(f"Step {step_number}: {step.get('name', '')}"))
 
-            if step.get("description"):
-                reporter.add_info(info(f"description: {step['description']}"))
+        if step.get("description"):
+            reporter.add_info(info(f"description: {step['description']}"))
 
-            return execute_step(
-                step,
-                context,
-                self.data_extractor,
-                self.template_renderer,
-                self.response_validator_factory,
-            )
+        return execute_step(
+            step,
+            context,
+            self.data_extractor,
+            self.template_renderer,
+            self.response_validator_factory,
+        )
 
     def run_test(self, yaml_path: str) -> None:
         """Executes a single test file.
