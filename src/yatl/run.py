@@ -79,7 +79,7 @@ def run_test_not_concurrently(runner, test_path: str = ".") -> None:
         print(error(f"{len(error_messages)} test(s) failed"))
         for message in error_messages:
             print(error(message))
-        SystemExit(1)
+        sys.exit(1)
 
 
 class Runner:
