@@ -387,6 +387,13 @@ Benefits
 - Improved readability: Clear separation between test structure and test data
 - Scalability: Easy to add new test cases by adding parameter rows
 
+At the same time, each test will run with its own parameters as a separate step:
+
+```
+Run test: Params test
+Step 1, params: ('/', 200)
+Step 2, params: ('/not_found', 404)
+```
 
 
 ## Running Tests
