@@ -210,8 +210,3 @@ class Runner:
 
         reporter.add_info(success("Test passed"))
         reporter.print_info()
-
-
-if __name__ == "__main__":
-    runner = Runner(DataExtractor(), TemplateRenderer(), ResponseValidator, Reporter)
-    run_tests_concurrently(runner, max_workers=10)
