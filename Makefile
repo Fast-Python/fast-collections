@@ -10,6 +10,7 @@ format:
 typing:
 	poetry run mypy .
 
+
 .PHONY: smoke
 smoke:
 	poetry run python -m src.yatl.run
