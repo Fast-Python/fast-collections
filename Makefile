@@ -10,9 +10,9 @@ format:
 typing:
 	poetry run mypy .
 
-.PHONY: integration_tests
-integration_tests:
-	poetry run yatl ./integration_tests
+.PHONY: smoke
+smoke:
+	poetry run yatl ./smoke
 
 .PHONY: unit_tests
 unit_tests:
