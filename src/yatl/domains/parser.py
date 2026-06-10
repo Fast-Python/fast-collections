@@ -6,13 +6,13 @@ from yatl.domains.domain import ExpectSpec, ExtractSpec, TestSpecification, Test
 from yatl.domains.http import (
     Body,
     BodyExpectation,
+    ContentFormat,
     FilesBody,
     FormBody,
     HttpRequest,
     JsonBody,
     TextBody,
     XmlBody,
-    ContentFormat
 )
 
 
