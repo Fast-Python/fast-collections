@@ -1,4 +1,4 @@
-name: Check linters, formatters, tests
+name: CI
 
 on:
   push:
