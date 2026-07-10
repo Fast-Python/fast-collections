@@ -1,0 +1,10 @@
+name: Hello Google
+base_url: https://google.com
+skip: True
+
+steps:
+  - name: ping 
+    request:
+      method: GET
+    expect:
+      status_code: 200

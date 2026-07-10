@@ -25,3 +25,5 @@ ENV/
 Thumbs.db
 dist/
 PUBLISH_GUIDE.md
+
+.coverage

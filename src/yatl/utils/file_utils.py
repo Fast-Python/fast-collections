@@ -52,14 +52,25 @@ def load_test_yaml(file_path: str) -> dict[str, str | int | list[Any]] | bool:
 
 
 def search_files(base_path: str) -> list[str]:
-    """Recursively searches for test files with a .yatl.yaml/.yatl.yml suffix.
+    """Searches for test files with a .yatl.yaml/.yatl.yml suffix.
+
+    If base_path is a single file with a valid extension, returns it directly.
+    Otherwise, recursively searches the directory for matching files.
 
     Args:
-        base_path: Base directory for the search.
+        base_path: Path to a .yatl.yaml/.yatl.yml file or a directory.
 
     Returns:
         List of found file paths.
+
+    Raises:
+        DirectoryNotFoundError: If base_path is neither a file nor a directory.
     """
+    if os.path.isfile(base_path):
+        if base_path.endswith(".yatl.yaml") or base_path.endswith(".yatl.yml"):
+            return [base_path]
+        return []
+
     if not os.path.isdir(base_path):
         raise DirectoryNotFoundError(f"Directory does not exist: {base_path}")
 

@@ -23,6 +23,18 @@ typing:  ## Run typing checks
 smoke: ## Run E2E checks
 	poetry run yatl ./smoke
 
-.PHONY: unit_tests
+.PHONY: test-unit
 unit_tests: ## Run unit tests with pytest
+	poetry run pytest
+
+.PHONY: coverage
+coverage: ## Run unit tests with coverage
+	poetry run pytest --cov=yatl --cov-report=term-missing
+	coverage combine
+
+.PHONY: test
+test: ## Run all tests
+	poetry run ruff check --select I --fix .
+	poetry run ruff format .
+	poetry run ruff check .
 	poetry run pytest

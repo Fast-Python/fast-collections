@@ -1,3 +1,6 @@
+from collections.abc import Callable
+from pathlib import PurePath
+
 import pytest
 
 from src.yatl.extractor import DataExtractor
@@ -39,3 +42,13 @@ def data():
             },
         ],
     }
+
+
+@pytest.fixture
+def fixture_path() -> Callable[[str], str]:
+    """Returns path to the fixture."""
+
+    def factory(path: str) -> str:
+        return str(PurePath(__file__).parent.joinpath("fixtures", path))
+
+    return factory

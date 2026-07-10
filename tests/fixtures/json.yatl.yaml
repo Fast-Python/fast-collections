@@ -1,7 +1,6 @@
 base_url: https://jsonplaceholder.typicode.com
 
 steps:
-
   - name: create_post
     request:
       method: POST
