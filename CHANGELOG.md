@@ -14,3 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [ ] `RBT` data structure
 - [ ] `Rabin–Karp` algorithm
 - [ ] `Aho–Corasick` algorithm
+- [ ] `Boyer-Moore` algorithm
+
+String data structures:
+
+- [ ] `Suffix Tree` data structure
+- [ ] `Suffix Array` data structure
