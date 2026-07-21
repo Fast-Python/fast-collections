@@ -1,6 +1,6 @@
 [project]
 name = "fast-collections"
-version = "0.0.0"
+version = "0.0.1"
 description = "Blazing-fast collections you've been missing"
 requires-python = ">=3.8"
 readme = "README.md"
